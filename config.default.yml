@@ -1,13 +1,13 @@
 # Backend configuration
 backend:
   # Access token required for interacting with the server -- string (empty string for no restrictions)
-  accessToken: ""
+  accessToken: "aF2kfRQndPPJ4fmpKvhiUYgwve7823rcwe87"
 
   # Enable the function to save to a webdav-server (check README for more info) -- boolean
   enableWebdav: false
 
   # Enable the function to save the whiteboard to a file so you save the state even on server restarts -- boolean
-  enableFileDatabase: false
+  enableFileDatabase: true
 
   # Backend performance tweaks
   performance:
@@ -38,7 +38,7 @@ frontend:
   drawBackgroundGrid: false
 
   # Background Image; Can be "bg_grid.png", "bg_dots.png" or "bg_white.png" (Place your background at assets/images if you want your own background)  -- string
-  backgroundGridImage: "bg_grid.png"
+  backgroundGridImage: "bg_white.png"
 
   # Frontend performance tweaks
   performance:
