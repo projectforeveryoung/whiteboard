@@ -253,6 +253,67 @@ function initWhiteboard() {
             }
         });
 
+        function drawPencil(main, sides) {
+            return `<svg viewBox="0 0 100 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M68.2803 0H60.9603L13.3203 18.9928V41.0072L60.9603 60H68.2803V0Z" fill="#F8C1A9"/>
+                    <path d="M68.2803 17.554H60.9603L13.3203 25.4676L13.3203 34.5324L60.9603 42.5899H68.2803V17.554Z" fill="#FAD5C4"/>
+                    <path d="M4.32 37.2662L13.2 41.0072L13.2 18.9928L4.32 22.7338C-1.44 25.1799 -1.44 34.964 4.32 37.2662Z" fill="${main}"/>
+                    <path d="M61.32 0.287766C66.24 4.60431 66.12 13.3813 61.08 17.4101L471.36 17.4101V-5.72205e-06L60.96 -5.72205e-06L61.2 0.287766H61.32Z" fill="${sides}"/>
+                    <path d="M61.32 59.7122L60.96 60L471.36 60V42.5899L60.96 42.5899C66 46.6187 66.24 55.5396 61.32 59.7122Z" fill="${sides}"/>
+                    <path d="M63.24 20.1439C67.8 25.6115 67.8 34.5324 63.24 40L61.08 42.5899L471.48 42.5899V17.554L60.96 17.554L63.12 20.1439H63.24Z" fill="${main}"/>
+                    <path d="M60.96 17.554L471.36 12.3741V22.5899L60.96 17.554Z" fill="#832D28"/>
+                    <path d="M60.96 42.5899L471.36 37.4101V47.6259L60.96 42.5899Z" fill="#832D28"/>
+                </svg>`;
+        }
+
+        function resetPencils() {
+            whiteboard.redrawMouseCursor();
+            $(".color-picker").removeClass("color-picker-selected");
+        }
+
+        // ParentCubby Custom buttons
+        $("#eraser").click(function () {
+            resetPencils();
+            shortcutFunctions.setTool_eraser();
+            $(this).addClass("color-picker-selected");
+        });
+        $("#color-picker-red")
+            .off("click")
+            .append(drawPencil("#D92D20", "#832D28"))
+            // .click(function () {
+            //     resetPencils();
+            //     whiteboard.setDrawColor("#D92D20");
+            //     shortcutFunctions.setTool_pen();
+            //     $(this).addClass("color-picker-selected");
+            // });
+        $("#color-picker-blue")
+            .off("click")
+            .append(drawPencil("#444CE7", "#2D31A6"))
+            // .click(function () {
+            //     resetPencils();
+            //     whiteboard.setDrawColor("#444CE7");
+            //     shortcutFunctions.setTool_pen();
+            //     $(this).addClass("color-picker-selected");
+            // });
+        $("#color-picker-green")
+            .off("click")
+            .append(drawPencil("#4CAF50", "#2E7D32"))
+            // .click(function () {
+            //     resetPencils();
+            //     whiteboard.setDrawColor("#4CAF50");
+            //     shortcutFunctions.setTool_pen();
+            //     $(this).addClass("color-picker-selected");
+            // });
+        $("#color-picker-black")
+            .off("click")
+            .append(drawPencil("#222", "#000"))
+            // .click(function () {
+            //     resetPencils();
+            //     whiteboard.setDrawColor("#000000");
+            //     shortcutFunctions.setTool_pen();
+            //     $(this).addClass("color-picker-selected");
+            // });
+
         // whiteboard clear button
         $("#whiteboardTrashBtn")
             .off("click")
@@ -306,14 +367,18 @@ function initWhiteboard() {
         $(".whiteboard-tool")
             .off("click")
             .click(function () {
-                $(".whiteboard-tool").removeClass("active");
-                $(this).addClass("active");
+                $(".whiteboard-tool").removeClass("color-picker-selected");
+                $(this).addClass("color-picker-selected");
                 var activeTool = $(this).attr("tool");
                 whiteboard.setTool(activeTool);
                 if (activeTool == "mouse" || activeTool == "recSelect") {
                     $(".activeToolIcon").empty();
                 } else {
                     $(".activeToolIcon").html($(this).html()); //Set Active icon the same as the button icon
+                }
+
+                if (activeTool == "pen") {
+                    whiteboard.setDrawColor($(this).attr("color"));
                 }
 
                 if (activeTool == "text" || activeTool == "stickynote") {
@@ -325,6 +390,10 @@ function initWhiteboard() {
                 if (savedThickness) {
                     whiteboard.setStrokeThickness(savedThickness);
                     $("#whiteboardThicknessSlider").val(savedThickness);
+                } else if (activeTool === 'eraser') {
+                    whiteboard.setStrokeThickness(20);
+                } else if (activeTool === 'pen') {
+                    whiteboard.setStrokeThickness(5);
                 }
             });
 

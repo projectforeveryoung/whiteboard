@@ -46,6 +46,7 @@ jspm_packages/
 
 # ide directories
 .idea
+*.zip
 
 # Typescript v1 declaration files
 typings/

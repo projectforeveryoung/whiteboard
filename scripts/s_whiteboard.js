@@ -2,7 +2,7 @@
 const fs = require("fs");
 const config = require("./config/config");
 const { getSafeFilePath } = require("./utils");
-const FILE_DATABASE_FOLDER = "savedBoards";
+const FILE_DATABASE_FOLDER = config.backend.fileDatabasePath || "savedBoards";
 
 var savedBoards = {};
 var savedUndos = {};

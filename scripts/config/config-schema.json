@@ -17,6 +17,9 @@
         "enableFileDatabase": {
           "type": "boolean"
         },
+        "fileDatabasePath": {
+          "type": "string"
+        },
         "performance": {
           "additionalProperties": false,
           "type": "object",

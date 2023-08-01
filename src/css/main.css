@@ -17,24 +17,41 @@ body {
     width: 100%;
 }
 
+.color-picker-grp {
+    position: absolute;
+    right: -25px;
+}
+
+.color-picker {
+    border: 0;
+    cursor: pointer;
+    background-color: transparent;
+    float: right;
+}
+
+.color-picker-selected {
+    margin-right: 15px;
+}
+
 .btn-group button {
     background: transparent;
-    border: 2px solid #636060;
+    border: 0;
     margin: -1px;
-    /* Green border */
-    color: black;
-    /* White text */
-    padding: 11px 14px;
-    /* Some padding */
+    padding: 0;
     cursor: pointer;
-    /* Pointer/hand icon */
     float: left;
-    /* Float the buttons side by side */
 }
 
 @media (max-device-width: 1024px) {
-    .btn-group button {
-        font-size: 2.4em;
+    .color-picker-grp {
+        top: 103px;
+    }
+
+    .color-picker svg {
+        width: 125px;
+    }
+
+    .btn-group button svg {
         height: 88px;
         width: 88px;
     }
@@ -45,8 +62,15 @@ body {
 }
 
 @media (min-device-width: 1024px) {
-    .btn-group button {
-        font-size: 1.2em;
+    .color-picker-grp {
+        top: 65px;
+    }
+
+    .color-picker svg {
+        width: 80px;
+    }
+
+    .btn-group button svg {
         height: 45px;
         width: 50px;
     }
@@ -58,16 +82,6 @@ body {
 
 button::-moz-focus-inner {
     border: 0;
-}
-
-.whiteboard-edit-group.group-disabled {
-    background: repeating-linear-gradient(
-        45deg,
-        rgba(255, 166, 0, 0.366),
-        rgba(255, 166, 0, 0.366) 10px,
-        rgba(255, 166, 0, 0.666) 10px,
-        rgba(255, 166, 0, 0.666) 20px
-    );
 }
 
 /*
@@ -86,18 +100,11 @@ button::-moz-focus-inner {
     display: table;
 }
 
-/* Add a background color on hover */
-
-.btn-group button:hover {
-    background-color: #9a9a9a;
-}
-
 button {
     outline-width: 0;
 }
 
 .btn-group {
-    background-color: #808080ab;
     margin-left: 5px;
     margin-bottom: 5px;
     float: left;
