@@ -279,40 +279,16 @@ function initWhiteboard() {
         });
         $("#color-picker-red")
             .off("click")
-            .append(drawPencil("#D92D20", "#832D28"))
-            // .click(function () {
-            //     resetPencils();
-            //     whiteboard.setDrawColor("#D92D20");
-            //     shortcutFunctions.setTool_pen();
-            //     $(this).addClass("color-picker-selected");
-            // });
+            .html(drawPencil("#D92D20", "#832D28"))
         $("#color-picker-blue")
             .off("click")
-            .append(drawPencil("#444CE7", "#2D31A6"))
-            // .click(function () {
-            //     resetPencils();
-            //     whiteboard.setDrawColor("#444CE7");
-            //     shortcutFunctions.setTool_pen();
-            //     $(this).addClass("color-picker-selected");
-            // });
+            .html(drawPencil("#444CE7", "#2D31A6"))
         $("#color-picker-green")
             .off("click")
-            .append(drawPencil("#4CAF50", "#2E7D32"))
-            // .click(function () {
-            //     resetPencils();
-            //     whiteboard.setDrawColor("#4CAF50");
-            //     shortcutFunctions.setTool_pen();
-            //     $(this).addClass("color-picker-selected");
-            // });
+            .html(drawPencil("#4CAF50", "#2E7D32"))
         $("#color-picker-black")
             .off("click")
-            .append(drawPencil("#222", "#000"))
-            // .click(function () {
-            //     resetPencils();
-            //     whiteboard.setDrawColor("#000000");
-            //     shortcutFunctions.setTool_pen();
-            //     $(this).addClass("color-picker-selected");
-            // });
+            .html(drawPencil("#222", "#000"))
 
         // whiteboard clear button
         $("#whiteboardTrashBtn")
