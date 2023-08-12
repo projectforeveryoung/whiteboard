@@ -10,7 +10,7 @@ This is a lightweight NodeJS collaborative Whiteboard/Sketchboard which can easi
 3) ssh into ec2 `ssh -i "CurserServerTest.pem" ec2-user@ec2-52-55-238-59.compute-1.amazonaws.com`
 4) delete existing code `cd app && rm -r * && cd ..`
 5) unzip into app dir `unzip whiteboard.zip -d app`
-6) build for prod `npm ci --only=prod`
+6) build for prod `npm install && npm run build && npm ci --only=prod`
 7) update the `config.default.yml` with the path to the efs directory commented in the file itself
 8) kill the existing process found with `ps aux | grep "server.js"`
 9) start the new process `npm run start > output.log &`
