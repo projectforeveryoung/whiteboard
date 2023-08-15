@@ -9,7 +9,7 @@ backend:
   # Enable the function to save the whiteboard to a file so you save the state even on server restarts -- boolean
   enableFileDatabase: true
 
-  fileDatabasePath: "savedBoards" # /home/ec2-user/efs/whiteboards
+  fileDatabasePath: "/home/ec2-user/app/whiteboards"
 
   # Backend performance tweaks
   performance:
