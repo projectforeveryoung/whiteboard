@@ -949,8 +949,19 @@ function initWhiteboard() {
         }
         intBgColorPicker();
 
-        // on startup select mouse
-        shortcutFunctions.setTool_mouse();
+        // on startup select pen
+        // if this looks hacky, that's because it is
+        var defaultColor = $("#color-picker-black")
+            .addClass("color-picker-selected")
+            .attr("color");
+        whiteboard.setDrawColor(defaultColor);
+        // not sure why both of these setTool calls are needed but they are
+        whiteboard.setTool("pen");
+        shortcutFunctions.setTool_pen();
+
+        // setting the pen tool above should set the default thickness too but it doesn't
+        whiteboard.setStrokeThickness(5);
+
         // fix bug cursor not showing up
         whiteboard.refreshCursorAppearance();
 
