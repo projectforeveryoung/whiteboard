@@ -1422,8 +1422,7 @@ const whiteboard = {
                                 'px;" class="userbadge ' +
                                 content["username"] +
                                 '">' +
-                                '<div style="width:4px; height:4px; background:gray; position:absolute; top:13px; left:-2px; border-radius:50%;"></div>' +
-                                decodeURIComponent(atob(content["username"])) +
+                                '<div style="width:10px; height:10px; background:gray; position:absolute; top:13px; left:-2px; border-radius:50%;"></div>' +
                                 "</div>"
                         );
                     }
