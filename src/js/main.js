@@ -294,8 +294,9 @@ function initWhiteboard() {
         $("#whiteboardTrashBtn")
             .off("click")
             .click(function () {
-                $("#whiteboardTrashBtnConfirm").show().focus();
                 $(this).hide();
+                $("#whiteboardTrashBtn").show();
+                whiteboard.clearWhiteboard();
             });
 
         $("#whiteboardTrashBtnConfirm").mouseout(function () {
