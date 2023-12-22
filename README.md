@@ -5,20 +5,7 @@ This is a lightweight NodeJS collaborative Whiteboard/Sketchboard which can easi
 ![start](./doc/start.png)
 
 ## ParentCubby Deploy
-1) zip up code to be pushed to ec2 `zip -r whiteboard.zip .`
-2) scp zip to ec2 `scp whiteboard.zip ec2-user@ec2-52-55-238-59.compute-1.amazonaws.com:~`
-3) ssh into ec2 `ssh -i "CurserServerTest.pem" ec2-user@ec2-52-55-238-59.compute-1.amazonaws.com`
-4) delete existing code `cd app && rm -r * && cd ..`
-5) unzip into app dir `unzip whiteboard.zip -d app`
-6) build for prod `npm install && npm run build && npm ci --only=prod`
-7) update the `config.default.yml` with the path to the efs directory commented in the file itself
-8) kill the existing process found with `ps aux | grep "server.js"`
-9) start the new process `npm run start > output.log &`
-10) check to make sure it's alive https://wb.parentcubby.com
-
-## Demo whiteboard
-
-[HERE](https://cloud13.de/testwhiteboard/) (Reset every night)
+See instructions in ParentCubby runbook
 
 ## Some Features
 
